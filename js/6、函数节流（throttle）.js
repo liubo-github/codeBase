@@ -1,12 +1,25 @@
-function throttle(fn, interval) {
-    let enterTime = 0 //触发的时间
-    let gapTime = interval || 300 //间隔时间，如果interval不传，则默认300ms
+/**
+ * @param fn 函数
+ * @param delay 间隔时间
+ * @param type 1：时间戳模式，时间段开始执行 2：定时器模式，时间段结束执行
+ */
+function throttle(fn, delay, type = 1) {
+    let prev = 0
     return function() {
-        let context = this
-        let backTime = Date.now() //第一次函数return即触发的时间
-        if (backTime - enterTime > gapTime) {
-            fn.call(context, ...arguments)
-            enterTime = backTime //赋值给第一次触发的时间，这样就保存了第二次触发的时间
+        let arg = arguments
+        if (type === 1) {
+            let now = Date.now()
+            if (now - prev >= delay) {
+                fn.apply(this, arg)
+                prev = now
+            }
+        } else if (type === 2) {
+            if (!fn.timer) {
+                fn.timer = setTimeout(() => {
+                    fn.apply(this, arg)
+                    fn.timer = null
+                }, delay)
+            }
         }
     }
 }
