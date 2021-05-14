@@ -1,11 +1,11 @@
 **a.com 页面：**
 
 ```
-<iframe onload="loaded" src="http://b.com" frameborder="0"></iframe>
+<iframe id="b" onload="loaded()" src="http://b.com" frameborder="0"></iframe>
 <script>
 // 必须在页面加载完成后才能使用postMessage通信
-function loaded(e) {
-    let childWindow = e.path[0].contentWindow
+function loaded() {
+    let childWindow = document.querySelector('#b').contentWindow
     childWindow.postMessage({ msg: 'a.com to b.com' }, 'http://b.com')
 }
 
@@ -33,8 +33,9 @@ window.addEventListener("message", (event) => {
         } = event;
         if (origin !== "http://a.com") return;
         console.log(data); // { msg: 'a.com to b.com' }
+
+        window.parent.postMessage({msg: 'b.com to a.com'}, '*');
     });
 
-     window.parent.postMessage({msg: 'b.com to a.com'}, '*');
 </script>
 ```
