@@ -12,6 +12,7 @@
 ├—node ---- 基于node.js环境的问题解决方案
 ├—plug-in ---- 第三方插件库使用案例
 ├—style ---- 常见样式问题解决方案
+├－vue ---- 基于vue实现的组件或功能demo
 ├—.prettierrc ---- prettier代码格式化配置
 └—README.md
 ```
