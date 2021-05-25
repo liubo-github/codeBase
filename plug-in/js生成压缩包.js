@@ -11,9 +11,9 @@ let options = {}
 
 zip.file(fileName, fileContent, options)
 
-zip.generateAsync({ type: 'blob' }).then(function (content) {
-	// see FileSaver.js
-	saveAs(content, 'xxxx.zip') // 压缩包后缀名或可设为 .rar
+zip.generateAsync({ type: 'blob' }).then(function(content) {
+    // see FileSaver.js
+    saveAs(content, 'xxxx.zip') // 压缩包后缀名或可设为 .rar
 })
 
 // fileContent 参数类型

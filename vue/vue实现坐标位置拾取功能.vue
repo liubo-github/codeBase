@@ -9,14 +9,14 @@
 					{{ y * (col - 1) + row }}
 				</div>
 				<!-- <div v-if="col >= x && row <= y" class="active">
-					{{ y * (maxX - col) + row }}
-				</div> -->
+                    {{ y * (maxX - col) + row }}
+                </div> -->
 				<!-- <div v-if="col <= x && row >= y" class="active">
-					{{ (maxY - y + 1) * (col - 1) + (maxY - row + 1) }}
-				</div> -->
+                    {{ (maxY - y + 1) * (col - 1) + (maxY - row + 1) }}
+                </div> -->
 				<!-- <div v-if="col >= x && row >= y" class="active">
-					{{ (maxY - y + 1) * (maxX - col) + (maxY - row + 1) }}
-				</div> -->
+                    {{ (maxY - y + 1) * (maxX - col) + (maxY - row + 1) }}
+                </div> -->
 			</div>
 		</div>
 	</div>
